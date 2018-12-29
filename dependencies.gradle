@@ -1,0 +1,30 @@
+allprojects {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+}
+
+def versions = [:]
+versions.spring_boot = '2.1.1.RELEASE'
+versions.junit = '4.12'
+versions.hibernate = '5.4.0.Final'
+
+def deps = [:]
+
+def spring_boot = [:]
+spring_boot.gradle_plugin = "org.springframework.boot:spring-boot-gradle-plugin:$versions.spring_boot"
+spring_boot.web = "org.springframework.boot:spring-boot-starter-web"
+spring_boot.jpa = "org.springframework.boot:spring-boot-starter-data-jpa"
+deps.spring_boot = spring_boot
+
+def db = [:]
+db.hibernate = "org.hibernate:hibernate-entitymanager"
+db.mysql = "mysql:mysql-connector-java"
+deps.db = db
+
+def junit = [:]
+junit.core = "junit:junit:$versions.junit"
+deps.junit = junit
+
+ext.deps = deps

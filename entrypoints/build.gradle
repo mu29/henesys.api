@@ -1,0 +1,19 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath deps.spring_boot.gradle_plugin
+    }
+}
+
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+dependencies {
+    implementation project(':domain')
+    implementation project(':dataproviders')
+
+    implementation deps.spring_boot.web
+}

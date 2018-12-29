@@ -1,0 +1,33 @@
+buildscript {
+    apply from: 'dependencies.gradle'
+
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath deps.spring_boot.gradle_plugin
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+
+    dependencies {
+        testImplementation deps.junit.core
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
