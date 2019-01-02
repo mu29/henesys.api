@@ -17,5 +17,4 @@ dependencies {
 
     implementation deps.spring_boot.jpa
     implementation deps.db.mysql
-    implementation deps.db.hibernate
 }
