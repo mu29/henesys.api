@@ -5,9 +5,9 @@ import net.yeoubi.henesys.domain.entities.Article;
 import net.yeoubi.henesys.local.database.ArticleJpaRepository;
 import net.yeoubi.henesys.local.entities.ArticleEntity;
 
-public class ArticleLocalDataSource implements ArticleLocal {
+public final class ArticleLocalDataSource implements ArticleLocal {
 
-    private ArticleJpaRepository jpaRepository;
+    private final ArticleJpaRepository jpaRepository;
 
     public ArticleLocalDataSource(ArticleJpaRepository jpaRepository) {
         this.jpaRepository = jpaRepository;

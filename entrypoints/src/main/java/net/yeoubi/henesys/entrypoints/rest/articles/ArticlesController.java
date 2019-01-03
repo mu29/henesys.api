@@ -1,6 +1,6 @@
 package net.yeoubi.henesys.entrypoints.rest.articles;
 
-import net.yeoubi.henesys.domain.usecases.article.CreateArticleUseCase;
+import net.yeoubi.henesys.domain.usecases.article.CreateArticle;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,14 +12,14 @@ import java.util.concurrent.CompletionStage;
 @RequestMapping("/articles")
 public class ArticlesController {
 
-    private CreateArticleUseCase createArticleUseCase;
+    private CreateArticle createArticle;
 
-    public ArticlesController(CreateArticleUseCase createArticleUseCase) {
-        this.createArticleUseCase = createArticleUseCase;
+    public ArticlesController(CreateArticle createArticle) {
+        this.createArticle = createArticle;
     }
 
     @PostMapping
     CompletionStage<CreateArticleDto> createArticle(@RequestBody ArticleParams params) {
-        return createArticleUseCase.execute(params, ArticleParams::fromParams, CreateArticleDto::toDto);
+        return createArticle.execute(params, ArticleParams::fromParams, CreateArticleDto::toDto);
     }
 }

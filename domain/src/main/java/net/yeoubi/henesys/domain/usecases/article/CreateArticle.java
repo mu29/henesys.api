@@ -3,11 +3,11 @@ package net.yeoubi.henesys.domain.usecases.article;
 import net.yeoubi.henesys.domain.entities.Article;
 import net.yeoubi.henesys.domain.usecases.UseCase;
 
-public class CreateArticleUseCase extends UseCase<Article, Article> {
+public final class CreateArticle extends UseCase<Article, Article> {
 
-    private ArticleRepository repository;
+    private final ArticleRepository repository;
 
-    public CreateArticleUseCase(ArticleRepository repository) {
+    public CreateArticle(ArticleRepository repository) {
         this.repository = repository;
     }
 

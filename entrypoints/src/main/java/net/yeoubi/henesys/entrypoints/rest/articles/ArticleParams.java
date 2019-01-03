@@ -2,7 +2,7 @@ package net.yeoubi.henesys.entrypoints.rest.articles;
 
 import net.yeoubi.henesys.domain.entities.Article;
 
-public class ArticleParams {
+class ArticleParams {
 
     private Integer id;
 
@@ -22,7 +22,7 @@ public class ArticleParams {
         return content;
     }
 
-    public static Article fromParams(ArticleParams params) {
+    static Article fromParams(ArticleParams params) {
         return new Article(
             params.getId(),
             params.getTitle(),

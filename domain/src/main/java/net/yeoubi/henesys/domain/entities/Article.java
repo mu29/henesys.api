@@ -1,6 +1,6 @@
 package net.yeoubi.henesys.domain.entities;
 
-public class Article {
+public final class Article {
 
     private Integer id;
 

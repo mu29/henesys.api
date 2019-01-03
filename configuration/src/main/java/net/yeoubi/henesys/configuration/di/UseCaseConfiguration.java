@@ -1,6 +1,6 @@
 package net.yeoubi.henesys.configuration.di;
 
-import net.yeoubi.henesys.domain.usecases.article.CreateArticleUseCase;
+import net.yeoubi.henesys.domain.usecases.article.CreateArticle;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 public class UseCaseConfiguration {
 
     @Bean
-    public CreateArticleUseCase createArticleUseCase(CreateArticleUseCase.ArticleRepository repository) {
-        return new CreateArticleUseCase(repository);
+    public CreateArticle createArticle(CreateArticle.ArticleRepository repository) {
+        return new CreateArticle(repository);
     }
 }

@@ -18,29 +18,9 @@ public class ArticleEntity {
     @Column
     private String content;
 
-    public ArticleEntity(Integer id, String title, String content) {
+    private ArticleEntity(Integer id, String title, String content) {
         this.id = id;
         this.title = title;
-        this.content = content;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
         this.content = content;
     }
 
@@ -54,9 +34,9 @@ public class ArticleEntity {
 
     public static Article fromEntity(ArticleEntity article) {
         return new Article(
-            article.getId(),
-            article.getTitle(),
-            article.getContent()
+            article.id,
+            article.title,
+            article.content
         );
     }
 }

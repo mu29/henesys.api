@@ -10,7 +10,7 @@ public class CreateArticleDto {
 
     private String content;
 
-    public CreateArticleDto(Integer id, String title, String content) {
+    CreateArticleDto(Integer id, String title, String content) {
         this.id = id;
         this.title = title;
         this.content = content;
@@ -28,7 +28,7 @@ public class CreateArticleDto {
         return content;
     }
 
-    public static CreateArticleDto toDto(Article article) {
+    static CreateArticleDto toDto(Article article) {
         return new CreateArticleDto(
             article.getId(),
             article.getTitle(),
