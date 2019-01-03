@@ -8,6 +8,7 @@ allprojects {
 def versions = [:]
 versions.spring_boot = '2.1.1.RELEASE'
 versions.junit = '4.12'
+versions.jsoup = '1.11.3'
 
 def deps = [:]
 
@@ -25,5 +26,9 @@ deps.db = db
 def junit = [:]
 junit.core = "junit:junit:$versions.junit"
 deps.junit = junit
+
+def jsoup = [:]
+jsoup.core = "org.jsoup:jsoup:$versions.jsoup"
+deps.jsoup = jsoup
 
 ext.deps = deps

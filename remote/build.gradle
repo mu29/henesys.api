@@ -1,0 +1,6 @@
+dependencies {
+    implementation project(':domain')
+    implementation project(':dataproviders')
+
+    implementation deps.jsoup.core
+}

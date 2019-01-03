@@ -17,6 +17,15 @@ public abstract class UseCase<Request, Response> {
             .thenApplyAsync(responseConverter::convert);
     }
 
+    public <ResponseDto> CompletionStage<ResponseDto> execute(
+        Request request,
+        ResponseConverter<Response, ResponseDto> responseConverter
+    ) {
+        return CompletableFuture
+            .supplyAsync(() -> buildUseCase(request))
+            .thenApplyAsync(responseConverter::convert);
+    }
+
     public interface RequestConverter<RequestDto, Request> {
         Request convert(RequestDto request);
     }
