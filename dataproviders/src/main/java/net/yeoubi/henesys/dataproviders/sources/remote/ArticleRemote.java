@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface ArticleRemote {
 
-    List<Article> scrapInvenArticleList(Integer page);
+    List<Article> scrapArticleList(Integer page);
 }

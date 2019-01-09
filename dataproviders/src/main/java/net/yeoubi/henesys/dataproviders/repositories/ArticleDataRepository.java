@@ -24,8 +24,8 @@ public final class ArticleDataRepository implements ArticleRepository {
     }
 
     @Override
-    public Integer scrapInvenArticleList(Integer page) {
-        List<Article> articles =  remoteDataSource.scrapInvenArticleList(page);
+    public Integer scrapArticleList(Integer page) {
+        List<Article> articles =  remoteDataSource.scrapArticleList(page);
         articles.forEach(localDataSource::create);
 
         return articles.size();

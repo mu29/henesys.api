@@ -1,7 +1,7 @@
 package net.yeoubi.henesys.domain.repositories;
 
 import net.yeoubi.henesys.domain.usecases.article.CreateArticle;
-import net.yeoubi.henesys.domain.usecases.article.ScrapInvenArticleList;
+import net.yeoubi.henesys.domain.usecases.article.ScrapArticleList;
 
 public interface ArticleRepository extends CreateArticle.ArticleRepository,
-    ScrapInvenArticleList.ArticleRepository {}
+    ScrapArticleList.ArticleRepository {}
