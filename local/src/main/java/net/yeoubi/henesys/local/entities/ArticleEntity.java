@@ -18,17 +18,58 @@ public class ArticleEntity {
     @Column
     private String content;
 
-    private ArticleEntity(Integer id, String title, String content) {
+    @ManyToOne
+    @JoinColumn
+    private ProviderEntity provider;
+
+    @ManyToOne
+    private MenuEntity menu;
+
+    @ManyToOne
+    private UserEntity user;
+
+    @Column
+    private String userName;
+
+    @Column
+    private String sourceId;
+
+    @Column
+    private String sourceUrl;
+
+    public ArticleEntity(
+        Integer id,
+        String title,
+        String content,
+        ProviderEntity provider,
+        MenuEntity menu,
+        UserEntity user,
+        String userName,
+        String sourceId,
+        String sourceUrl
+    ) {
         this.id = id;
         this.title = title;
         this.content = content;
+        this.provider = provider;
+        this.menu = menu;
+        this.user = user;
+        this.userName = userName;
+        this.sourceId = sourceId;
+        this.sourceUrl = sourceUrl;
     }
 
     public static ArticleEntity toEntity(Article article) {
         return new ArticleEntity(
             article.getId(),
             article.getTitle(),
-            article.getContent()
+            article.getContent(),
+            ProviderEntity.toEntity(article.getProvider()),
+            MenuEntity.toEntity(article.getMenu()),
+            UserEntity.toEntity(article.getUser()),
+            article.getUserName(),
+            article.getSourceId(),
+            article.getSourceUrl()
         );
     }
 
@@ -36,7 +77,13 @@ public class ArticleEntity {
         return new Article(
             article.id,
             article.title,
-            article.content
+            article.content,
+            ProviderEntity.fromEntity(article.provider),
+            MenuEntity.fromEntity(article.menu),
+            UserEntity.fromEntity(article.user),
+            article.userName,
+            article.sourceId,
+            article.sourceUrl
         );
     }
 }
